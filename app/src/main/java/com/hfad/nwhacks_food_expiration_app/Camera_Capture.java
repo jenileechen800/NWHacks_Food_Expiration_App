@@ -99,6 +99,7 @@ public class Camera_Capture extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         FoodList history = null;
         loadFromDisk(history);
+        Intent intent = new Intent(this, Recently_Added_Screen.class);
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
@@ -128,14 +129,14 @@ public class Camera_Capture extends AppCompatActivity {
 
                         AnalysisResult result = visionServiceClient.analyzeImage(inputStreams[0], features, details);
 
-                        String jsonResultstr = new Json().toJson(result);
+                        String jsonResultstr = new Gson().toJson(result);
                         JsonObject jsonObjResult = new JsonParser().parse(jsonResultstr).getAsJsonObject();
                         Azure_Scanner scanner = new Azure_Scanner();
                         FoodItem resultFood = scanner.jsonToFood(jsonObjResult);
                         history.addFoodItem(resultFood);
                         saveToDisk(history);
 
-                        Intent intent = new Intent(this, Recently_Added_Screen.class);
+
                         intent.putExtra("expiryTime", resultFood.getExpiryTime());
                         intent.putExtra("itemName", resultFood.getItemType());
                         intent.putExtra("photo", imageBitmap);
@@ -163,7 +164,7 @@ public class Camera_Capture extends AppCompatActivity {
                     else {
                         progressDialog.dismiss();
 
-                        AnalysisResult result = new Json().fromJson(s, AnalysisResult.class);
+                        AnalysisResult result = new Gson().fromJson(s, AnalysisResult.class);
                         StringBuilder resultText = new StringBuilder();
                         for (Caption caption : result.description.captions)
                             resultText.append(caption.text);
