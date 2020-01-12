@@ -1,12 +1,15 @@
 package com.hfad.nwhacks_food_expiration_app;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class FoodList {
-    private Set<FoodItem> foods;
+    private final Set<FoodItem> foods;
 
     public FoodList(){
         Comparator<FoodItem> comparator = (f1, f2) -> (f1.getExpiryTime() == f2.getExpiryTime()) ? 0 :
@@ -19,5 +22,23 @@ public class FoodList {
             food.decrementExpiryTime();
         }
     }
+
+    public boolean addFoodItem(FoodItem foodItem) {
+        return foods.add(foodItem);
+    }
+
+    public void clearList() {
+        foods.clear();
+    }
+
+    public Map<String, Integer> getStringList() {
+        Map<String, Integer> map = new HashMap<>();
+        for (FoodItem food : foods) {
+            map.put(food.getItemType(), food.getExpiryTime());
+        }
+
+        return new HashMap<>(map);
+    }
+
 
 }

@@ -42,13 +42,13 @@ public class Azure_Scanner extends AppCompatActivity {
         });
     }
 
-    public FoodItem jsonToFood(JSONObject jsonObject) {
+    public FoodItem jsonToFood(JSONObject jsonObject) throws InstantiationException {
         String foregroundC = "";
         String backgroundC = "";
+        List<String> tags = new ArrayList<>();
         try {
             JSONObject JSONDesc = jsonObject.getJSONObject("description");
             JSONArray JSONTags = JSONDesc.getJSONArray("tags");
-            List<String> tags = new ArrayList<>();
             for (int i = 0; i < JSONTags.length(); i++) {
                 tags.add(JSONTags.getString(i));
             }
@@ -59,7 +59,7 @@ public class Azure_Scanner extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        return new FoodItem(tags, foregroundC, backgroundC, validItems);
+        return new FoodItem(foregroundC, backgroundC, tags, validItems);
     }
 
 }

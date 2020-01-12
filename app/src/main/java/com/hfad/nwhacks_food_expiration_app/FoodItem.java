@@ -8,7 +8,7 @@ public class FoodItem {
     private int timeUntilExpire;
 
 
-    public FoodItem(String itemType, String ForegroundC, String BackGroundC, List<String> itemsInPicture, Set<String> validItems) throws InstantiationException {
+    public FoodItem(String ForegroundC, String BackGroundC, List<String> itemsInPicture, Set<String> validItems) throws InstantiationException {
         this.itemType = assignItem(itemsInPicture, validItems);
         this.timeUntilExpire = expiryDate(ForegroundC, BackGroundC, itemType);
 
@@ -37,6 +37,8 @@ public class FoodItem {
     public void decrementExpiryTime() {
         timeUntilExpire--;
     }
+
+    public String getItemType() { return itemType; }
 
     public int getExpiryTime() { return timeUntilExpire; }
 
