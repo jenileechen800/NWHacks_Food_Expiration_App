@@ -37,8 +37,8 @@ public class Azure_Scanner extends AppCompatActivity {
     }
 
     public FoodItem jsonToFood(JSONObject jsonObject) {
-        String foregroundC;
-        String backgroundC;
+        String foregroundC = "";
+        String backgroundC = "";
         try {
             JSONObject JSONDesc = jsonObject.getJSONObject("description");
             JSONArray JSONTags = JSONDesc.getJSONArray("tags");

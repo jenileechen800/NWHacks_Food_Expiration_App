@@ -26,6 +26,8 @@ public class FoodItem {
         timeUntilExpire--;
     }
 
+    public int getExpiryTime() { return timeUntilExpire; }
+
 
 
 }
