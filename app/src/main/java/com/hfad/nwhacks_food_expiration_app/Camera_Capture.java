@@ -116,7 +116,7 @@ public class Camera_Capture extends AppCompatActivity {
                 protected String doInBackground(InputStream... inputStreams){
                     try {
                         publishProgress("Recognizing... ");
-                        String[] features = {"Description"};    // Get description from the API
+                        String[] features = {"ImageType", "Colour", "Description"};    // Get description from the API
                         String[] details = {};
 
                         AnalysisResult result = visionServiceClient.analyzeImage(inputStreams[0], features, details);
