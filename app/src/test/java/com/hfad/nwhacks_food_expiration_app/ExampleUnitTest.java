@@ -30,8 +30,9 @@ public class ExampleUnitTest {
             e.printStackTrace();
             Assert.fail();
         }
-
-
+    }
+    @Test
+    public void testFoodList() {
 
     }
 }

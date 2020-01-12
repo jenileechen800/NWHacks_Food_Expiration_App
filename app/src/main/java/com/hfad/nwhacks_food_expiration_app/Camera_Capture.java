@@ -12,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,8 +30,11 @@ import android.widget.Toast;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -93,6 +97,9 @@ public class Camera_Capture extends AppCompatActivity {
     // Get Image Thumbnail
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        FoodList history = null;
+        loadFromDisk(history);
+
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
@@ -116,7 +123,7 @@ public class Camera_Capture extends AppCompatActivity {
                 protected String doInBackground(InputStream... inputStreams){
                     try {
                         publishProgress("Recognizing... ");
-                        String[] features = {"Description"};    // Get description from the API
+                        String[] features = {"ImageType", "Colour", "Description"};    // Get description from the API
                         String[] details = {};
 
                         AnalysisResult result = visionServiceClient.analyzeImage(inputStreams[0], features, details);
@@ -125,6 +132,10 @@ public class Camera_Capture extends AppCompatActivity {
                         JsonObject jsonObjResult = new JsonParser().parse(jsonResultstr).getAsJsonObject();
                         Azure_Scanner scanner = new Azure_Scanner();
                         FoodItem resultFood = scanner.jsonToFood(jsonObjResult);
+                        history.addFoodItem(resultFood);
+                        saveToDisk(history);
+
+
                         return jsonResultstr;
 
                     } catch (IOException e) {
@@ -163,6 +174,38 @@ public class Camera_Capture extends AppCompatActivity {
             visionTask.execute(inputStream);
         }
     }
+
+    public void saveToDisk(FoodList history) {
+        Gson gson = new Gson();
+        String toSave = gson.toJson(history);
+        try {
+            FileWriter file = new FileWriter("local/saveHistory.json");
+            file.write(toSave);
+            file.flush();
+            file.close();
+        }
+        catch (Exception e) {
+
+        }
+    }
+
+    public void loadFromDisk(FoodList history) {
+        Gson gson = new Gson();
+
+        try {
+            Type listType = new TypeToken<FoodList>() { }.getType();
+            history = gson.fromJson(new FileReader(new File("local/saveHistory.json")), listType);
+        }
+        catch (Exception e) {
+            history = new FoodList();
+        }
+
+
+
+    }
+
+
+
 
 //     // Save photo
 //     String currentPhotoPath;

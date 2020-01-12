@@ -38,10 +38,9 @@ public class FoodItem {
         timeUntilExpire--;
     }
 
+    public boolean isExpired() { return timeUntilExpire <= 0;}
+
     public String getItemType() { return itemType; }
 
     public int getExpiryTime() { return timeUntilExpire; }
-
-
-
 }
