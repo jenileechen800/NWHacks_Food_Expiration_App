@@ -40,23 +40,23 @@ public class Camera_Capture extends AppCompatActivity {
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-//            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-                System.out.println(createImageFile().toString());
-            } catch (IOException ex) {
-                // error occured while creating file
-            }
-            // continue only if file was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.hfad.android.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }
-        }
+           startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//             File photoFile = null;
+//             try {
+//                 photoFile = createImageFile();
+//                 System.out.println(createImageFile().toString());
+//             } catch (IOException ex) {
+//                 // error occured while creating file
+//             }
+//             // continue only if file was successfully created
+//             if (photoFile != null) {
+//                 Uri photoURI = FileProvider.getUriForFile(this,
+//                         "com.hfad.android.fileprovider",
+//                         photoFile);
+//                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+//                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+//             }
+//         }
     }
 
     /** Called when user clicks the 'Take Photo' Button **/
@@ -74,49 +74,23 @@ public class Camera_Capture extends AppCompatActivity {
         }
     }
 
-    // Save photo
-    String currentPhotoPath;
+//     // Save photo
+//     String currentPhotoPath;
 
-    private File createImageFile() throws IOException {
-        // Create image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,     // prefix
-                ".jpg",     // suffix
-                storageDir         // directory
-        );
+//     private File createImageFile() throws IOException {
+//         // Create image file name
+//         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+//         String imageFileName = "JPEG_" + timeStamp + "_";
+//         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//         File image = File.createTempFile(
+//                 imageFileName,     // prefix
+//                 ".jpg",     // suffix
+//                 storageDir         // directory
+//         );
 
-        // Save a file: path for use with 'ACTION_VIEW' intents
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
-
-    static final int REQUEST_TAKE_PHOTO = 1;
-
-//    private void dispatchTakePictureIntent() {
-//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//
-//        // Ensure that there's a camera activity to handle the intent
-//
-//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-//            // Create File where photo should go
-//            File photoFile = null;
-//            try {
-//                photoFile = createImageFile();
-//            } catch (IOException ex) {
-//                // error occured while creating file
-//            }
-//            // continue only if file was successfully created
-//            if (photoFile != null) {
-//                Uri photoURI = FileProvider.getUriForFile(this,
-//                        "com.example.android.fileprovider",
-//                        photoFile);
-//                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-//                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-//            }
-//        }
-//    }
+//         // Save a file: path for use with 'ACTION_VIEW' intents
+//         currentPhotoPath = image.getAbsolutePath();
+//         return image;
+//     }
 
 }
