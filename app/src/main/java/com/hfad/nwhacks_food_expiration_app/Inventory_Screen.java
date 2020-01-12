@@ -138,7 +138,7 @@ public class Inventory_Screen extends AppCompatActivity {
         tv_expiry_dates.add(tv_expiry16);
     }
     public void display_data() {
-        Map<String, Integer> foodListMap = foodList.getStringList();
+        Map<String, String> foodListMap = foodList.getStringPairs();
 
         // asssign all 'items'
         Iterator foodsIterator = foodListMap.keySet().iterator();
