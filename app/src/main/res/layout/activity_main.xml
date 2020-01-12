@@ -6,13 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+<!--    <ImageView-->
+<!--        android:id="@+id/imgview_photo2"-->
+<!--        android:layout_width="289dp"-->
+<!--        android:layout_height="98dp"-->
+<!--        app:srcCompat="@android:drawable/alert_light_frame"-->
+<!--        tools:layout_editor_absoluteX="31dp"-->
+<!--        tools:layout_editor_absoluteY="375dp" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_photo2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:onClick="takePhoto"-->
+<!--        android:text="Take Photo"-->
+<!--        tools:layout_editor_absoluteX="123dp"-->
+<!--        tools:layout_editor_absoluteY="188dp" />-->
+
+    <Button
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:onClick="cameraActivity"
+        android:text="Go To Camera Capture"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="570dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
