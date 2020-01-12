@@ -21,7 +21,6 @@ public class Recently_Added_Screen extends AppCompatActivity {
     EditText et_item_name;
     EditText et_expiration_date;
 
-    TextView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
