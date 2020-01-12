@@ -10,6 +10,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Azure_Scanner extends AppCompatActivity {
 
     @Override
@@ -27,6 +34,26 @@ public class Azure_Scanner extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public FoodItem jsonToFood(JSONObject jsonObject) {
+        String foregroundC;
+        String backgroundC;
+        try {
+            JSONObject JSONDesc = jsonObject.getJSONObject("description");
+            JSONArray JSONTags = JSONDesc.getJSONArray("tags");
+            List<JSONObject> tags = new ArrayList<>();
+            for (int i = 0; i < JSONTags.length(); i++) {
+                tags.add(JSONTags.getJSONObject(i));
+            }
+            JSONObject JSONColor = jsonObject.getJSONObject("colors");
+            foregroundC = JSONColor.getString("dominantColorForeground");
+            backgroundC = JSONColor.getString("dominantColorBackground");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return new FoodItem(tags, foregroundC, backgroundC);
     }
 
 }
