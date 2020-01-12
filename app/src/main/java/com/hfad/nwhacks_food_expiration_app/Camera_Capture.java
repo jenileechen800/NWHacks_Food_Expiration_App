@@ -92,5 +92,5 @@ public class Camera_Capture extends AppCompatActivity {
 //         currentPhotoPath = image.getAbsolutePath();
 //         return image;
 //     }
-
+    }
 }
