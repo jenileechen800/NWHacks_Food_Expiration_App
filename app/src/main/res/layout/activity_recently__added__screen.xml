@@ -75,15 +75,17 @@
             android:layout_height="80dp"
             app:srcCompat="@drawable/left_arrow"
             android:layout_gravity="left"
+            android:onClick="activityCameraCapture"
             />
 
         <ImageButton
             android:id="@+id/imgbtn_arrow_right"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="190dp"
             android:layout_gravity="left"
-            app:srcCompat="@drawable/right_arrow" />
+            android:layout_marginLeft="190dp"
+            app:srcCompat="@drawable/right_arrow"
+            android:onClick="activityInventoryScreen"/>
 
     </LinearLayout>
 
