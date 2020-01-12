@@ -56,7 +56,7 @@ public class Camera_Capture extends AppCompatActivity {
 //                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
 //                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
 //             }
-//         }
+        }
     }
 
     /** Called when user clicks the 'Take Photo' Button **/
@@ -92,5 +92,5 @@ public class Camera_Capture extends AppCompatActivity {
 //         currentPhotoPath = image.getAbsolutePath();
 //         return image;
 //     }
-    }
+    
 }
