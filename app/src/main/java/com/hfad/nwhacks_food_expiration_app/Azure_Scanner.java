@@ -42,9 +42,9 @@ public class Azure_Scanner extends AppCompatActivity {
         try {
             JSONObject JSONDesc = jsonObject.getJSONObject("description");
             JSONArray JSONTags = JSONDesc.getJSONArray("tags");
-            List<JSONObject> tags = new ArrayList<>();
+            List<String> tags = new ArrayList<>();
             for (int i = 0; i < JSONTags.length(); i++) {
-                tags.add(JSONTags.getJSONObject(i));
+                tags.add(JSONTags.getString(i));
             }
             JSONObject JSONColor = jsonObject.getJSONObject("colors");
             foregroundC = JSONColor.getString("dominantColorForeground");
