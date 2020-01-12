@@ -37,14 +37,12 @@
                 android:columnCount="2">
 
                 <TextView
-                    android:id="@+id/tv_item1"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry1"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -53,14 +51,12 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/tv_item2"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry2"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -69,14 +65,12 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/tv_item3"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry3"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -85,14 +79,12 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/tv_item4"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry4"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -101,14 +93,12 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/tv_item5"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry5"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -117,14 +107,12 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/tv_item6"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry6"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -133,14 +121,12 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/tv_item7"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry7"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -149,14 +135,12 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/tv_item8"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry8"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -165,14 +149,12 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/tv_item9"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry9"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -180,14 +162,12 @@
                     android:paddingBottom="15dp">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_item10"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry10"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -195,14 +175,12 @@
                     android:paddingBottom="15dp">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_item11"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry11"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -210,14 +188,12 @@
                     android:paddingBottom="15dp">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_item12"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry12"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -225,14 +201,12 @@
                     android:paddingBottom="15dp">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_item13"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry13"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -240,14 +214,12 @@
                     android:paddingBottom="15dp">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_item14"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry14"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -255,14 +227,12 @@
                     android:paddingBottom="15dp">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_item15"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry15"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -270,14 +240,12 @@
                     android:paddingBottom="15dp">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_item16"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="Item">
                 </TextView>
                 <TextView
-                    android:id="@+id/tv_expiry16"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
