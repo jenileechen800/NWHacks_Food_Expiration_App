@@ -25,8 +25,8 @@ public class FoodItem {
 
     private int expiryDate (String ForegroundC, String BackGroundC, String itemType) {
         int expiryTime = 0;
-        if(itemType == "banana") {
-            if (ForegroundC == "green") {
+        if(itemType.equals("banana")) {
+            if (ForegroundC.equals("green")) {
                 expiryTime = 5;
             }
         }
