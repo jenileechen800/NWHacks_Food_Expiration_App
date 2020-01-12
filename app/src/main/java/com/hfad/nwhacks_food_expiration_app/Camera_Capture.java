@@ -11,6 +11,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -120,15 +121,17 @@ public class Camera_Capture extends AppCompatActivity {
 
                         AnalysisResult result = visionServiceClient.analyzeImage(inputStreams[0], features, details);
 
-                        String jsonResult = new Gson().toJson(result);
-//                        JsonObject jsonObjectResult
-//                        Azure_Scanner scanner = new Azure_Scanner();
-//                        FoodItem resultFood = scanner.jsonToFood();
-                        return jsonResult;
+                        String jsonResultstr = new Gson().toJson(result);
+                        JsonObject jsonObjResult = new JsonParser().parse(jsonResultstr).getAsJsonObject();
+                        Azure_Scanner scanner = new Azure_Scanner();
+                        FoodItem resultFood = scanner.jsonToFood(jsonObjResult);
+                        return jsonResultstr;
 
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (VisionServiceException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
                         e.printStackTrace();
                     }
 
