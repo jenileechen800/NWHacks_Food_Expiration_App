@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,9 +19,11 @@ import androidx.core.content.FileProvider;
 
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -118,6 +121,9 @@ public class Camera_Capture extends AppCompatActivity {
                         AnalysisResult result = visionServiceClient.analyzeImage(inputStreams[0], features, details);
 
                         String jsonResult = new Gson().toJson(result);
+//                        JsonObject jsonObjectResult
+//                        Azure_Scanner scanner = new Azure_Scanner();
+//                        FoodItem resultFood = scanner.jsonToFood();
                         return jsonResult;
 
                     } catch (IOException e) {
@@ -131,12 +137,17 @@ public class Camera_Capture extends AppCompatActivity {
 
                 @Override
                 protected void onPostExecute(String s){
-                    progressDialog.dismiss();
+                    if (TextUtils.isEmpty(s)) {
+                        Toast.makeText(Camera_Capture.this, "API returned empty result", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        progressDialog.dismiss();
 
-                    AnalysisResult result = new Gson().fromJson(s, AnalysisResult.class);
-                    StringBuilder resultText = new StringBuilder();
-                    for (Caption caption:result.description.captions)
-                        resultText.append(caption.text);
+                        AnalysisResult result = new Gson().fromJson(s, AnalysisResult.class);
+                        StringBuilder resultText = new StringBuilder();
+                        for (Caption caption : result.description.captions)
+                            resultText.append(caption.text);
+                    }
                 }
 
                 @Override
@@ -144,6 +155,9 @@ public class Camera_Capture extends AppCompatActivity {
                     progressDialog.setMessage(values[0]);
                 }
              };
+
+            // Run the task
+            visionTask.execute(inputStream);
         }
     }
 
