@@ -14,7 +14,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -42,20 +45,20 @@ public class Azure_Scanner extends AppCompatActivity {
         });
     }
 
-    public FoodItem jsonToFood(JSONObject jsonObject) throws InstantiationException {
+    public FoodItem jsonToFood(JsonObject jsonObject) throws InstantiationException {
         String foregroundC = "";
         String backgroundC = "";
         List<String> tags = new ArrayList<>();
         try {
-            JSONObject JSONDesc = jsonObject.getJSONObject("description");
-            JSONArray JSONTags = JSONDesc.getJSONArray("tags");
-            for (int i = 0; i < JSONTags.length(); i++) {
-                tags.add(JSONTags.getString(i));
+            JsonObject JsonDesc = jsonObject.getAsJsonObject("description");
+            JsonArray JsonTags = JsonDesc.getAsJsonArray("tags");
+            for (int i = 0; i < JsonTags.size(); i++) {
+                tags.add(JsonTags.get(i).getAsString());
             }
-            JSONObject JSONColor = jsonObject.getJSONObject("colors");
-            foregroundC = JSONColor.getString("dominantColorForeground");
-            backgroundC = JSONColor.getString("dominantColorBackground");
-        } catch (JSONException e) {
+            JsonObject JsonColor = jsonObject.getAsJsonObject("color");
+            foregroundC = JsonColor.get("dominantColorForeground").getAsString();
+            backgroundC = JsonColor.get("dominantColorBackground").getAsString();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
