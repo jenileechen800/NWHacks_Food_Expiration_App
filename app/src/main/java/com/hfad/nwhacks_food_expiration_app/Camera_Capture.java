@@ -97,7 +97,7 @@ public class Camera_Capture extends AppCompatActivity {
     // Get Image Thumbnail
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        FoodList history;
+        FoodList history = null;
         loadFromDisk(history);
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
@@ -189,7 +189,7 @@ public class Camera_Capture extends AppCompatActivity {
         }
     }
 
-    public void loadFromDisk(FoodList history) throws IOException {
+    public void loadFromDisk(FoodList history) {
         Gson gson = new Gson();
 
         try {
