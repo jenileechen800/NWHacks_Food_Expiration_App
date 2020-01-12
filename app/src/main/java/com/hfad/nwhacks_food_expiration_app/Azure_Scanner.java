@@ -14,10 +14,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Azure_Scanner extends AppCompatActivity {
+
+    private Set<String> validItems = new HashSet<>(Arrays.asList("banana"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +59,7 @@ public class Azure_Scanner extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        return new FoodItem(tags, foregroundC, backgroundC);
+        return new FoodItem(tags, foregroundC, backgroundC, validItems);
     }
 
 }
