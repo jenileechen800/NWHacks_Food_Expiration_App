@@ -58,7 +58,7 @@ public class Camera_Capture extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera__capture);
+        setContentView(R.layout.activity_home__page);
 
         view_photo = (ImageView) findViewById(R.id.imgview_photo);
         //txtResult = (TextView) findViewById(R.id.txt_result);
