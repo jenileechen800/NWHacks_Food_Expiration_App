@@ -31,7 +31,7 @@ public class FoodList {
         foods.clear();
     }
 
-    public Map<String, String> getStringList() {
+    public Map<String, String> getStringPairs() {
         Map<String, String> map = new HashMap<>();
         for (FoodItem food : foods) {
             if (food.isExpired()) {
