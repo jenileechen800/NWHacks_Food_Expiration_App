@@ -9,8 +9,8 @@ import java.util.TreeSet;
 public class FoodList {
     private final Set<FoodItem> foods;
 
-    public FoodList(){
-        Comparator<FoodItem> comparator = (f1, f2) -> (f1.getExpiryTime() == f2.getExpiryTime()) ? 0 :
+    public FoodList() {
+        Comparator<FoodItem> comparator = (f1, f2) -> f1.getExpiryTime() == f2.getExpiryTime() ? 0 :
                 f1.getExpiryTime() < f2.getExpiryTime() ? -f1.getExpiryTime() : f2.getExpiryTime();
         this.foods = new TreeSet<>(comparator);
     }
@@ -25,16 +25,21 @@ public class FoodList {
         return foods.add(foodItem);
     }
 
+    public boolean removeFoodItem(FoodItem foodItem) { return foods.remove(foodItem); }
+
     public void clearList() {
         foods.clear();
     }
 
-    public Map<String, Integer> getStringList() {
-        Map<String, Integer> map = new HashMap<>();
+    public Map<String, String> getStringPairs() {
+        Map<String, String> map = new HashMap<>();
         for (FoodItem food : foods) {
-            map.put(food.getItemType(), food.getExpiryTime());
+            if (food.isExpired()) {
+                map.put(food.getItemType(), "EXPIRED");
+            } else {
+                map.put(food.getItemType(), Integer.toString(food.getExpiryTime()));
+            }
         }
-
         return new HashMap<>(map);
     }
 
