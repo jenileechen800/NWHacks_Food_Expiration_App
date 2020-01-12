@@ -135,6 +135,12 @@ public class Camera_Capture extends AppCompatActivity {
                         history.addFoodItem(resultFood);
                         saveToDisk(history);
 
+                        Intent intent = new Intent(this, Recently_Added_Screen.class);
+                        intent.putExtra("expiryTime", resultFood.getExpiryTime());
+                        intent.putExtra("itemName", resultFood.getItemType());
+                        intent.putExtra("photo", imageBitmap);
+                        startActivity(intent);
+
 
                         return jsonResultstr;
 
