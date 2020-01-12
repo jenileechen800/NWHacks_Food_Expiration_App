@@ -7,6 +7,7 @@
     <uses-feature
         android:name="android.hardware.camera2"
         android:required="true" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -17,9 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AddItemManuallyActivity"
+            android:label="@string/title_activity_add_item_manually"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".Inventory_Screen"
             android:label="@string/title_activity_inventory__screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Recently_Added_Screen"
             android:label="@string/title_activity_recently__added__screen"
